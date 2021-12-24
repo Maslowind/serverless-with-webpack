@@ -1,4 +1,4 @@
-import { join, resolve as _resolve } from 'path';
+import { resolve as _resolve } from 'path';
 import { lib } from 'serverless-webpack';
 import * as nodeExternals from 'webpack-node-externals';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
@@ -22,11 +22,6 @@ export const resolve = {
 			configFile: './tsconfig.paths.json',
 		}),
 	],
-};
-export const output = {
-	libraryTarget: 'commonjs',
-	path: join(__dirname, '.webpack'),
-	filename: '[name].ts',
 };
 export const optimization = {
 	concatenateModules: false,
