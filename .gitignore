@@ -48,3 +48,16 @@ Thumbs.db
 *.mov
 *.wmv
 
+# package directories
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# esbuild directories
+.esbuild
+
+# environment variables
+.env.dev
+.env.sit
+

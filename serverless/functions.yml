@@ -1,0 +1,2 @@
+HelloWorld:
+    handler: src/lambdas/HelloWorld/index.handler

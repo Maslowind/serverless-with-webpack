@@ -1,0 +1,37 @@
+service: citizentrader-monitoring
+
+frameworkVersion: 2
+
+functions: ${file(serverless/functions.yml)}
+
+resources: ${file(serverless/resources.yml)}
+
+useDotenv: true
+
+plugins:
+    - serverless-layers
+    - serverless-webpack
+
+package:
+    individually: false
+    exclude:
+        - node_modules/**
+
+provider:
+    name: aws
+    runtime: nodejs14.x
+    stage: ${self:custom.stage}
+    region: ${self:custom.region}
+    versionFunctions: false
+    deploymentBucket:
+        name: ${self:custom.deploymentBucketName}
+
+custom:
+    stage: ${opt:stage, env:AWS_STAGE}
+    region: ${env:AWS_REGION}
+    deploymentBucketName: ${self:custom.stage}-deployment-citizentrader-monitoring
+    webpack:
+        webpackConfig: webpack.config.ts
+        includeModules: true
+
+
