@@ -5,15 +5,12 @@
   "main": "serverless.yml",
   "scripts": {
     "sls": "sls",
-
     "dev": "npm run sls deploy -- --verbose --stage dev",
     "dev:undeploy": "npm run sls remove --stage dev",
     "dev:function": "npm run sls deploy -- function -f --stage dev",
-
     "sit": "npm run sls deploy -- --verbose --stage sit",
     "sit:undeploy": "npm run sls remove --stage sit",
     "sit:function": "npm run sls deploy -- function -f --stage sit",
-
     "lint": "eslint --ext .ts ./src --fix"
   },
   "engines": {
@@ -25,6 +22,7 @@
     "middy": "^0.36.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/aws-lambda": "^8.10.71",
     "@types/content-type": "^1.1.5",
     "@types/node": "^14.14.25",
